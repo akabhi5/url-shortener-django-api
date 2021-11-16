@@ -1,8 +1,7 @@
 from django.urls import path
-from shortener.views import get_user_urls, generate_url, get_original_url
+from shortener import views
 
 urlpatterns = [
-    path('userurls/', get_user_urls),
-    path('generateurl/', generate_url),
-    path('geturl/<str:link>/', get_original_url),
+    path('urllist/', views.URLShortenerList.as_view()),
+    path('urldetail/<str:link>/', views.URLShortenerDetail.as_view()),
 ]

@@ -6,7 +6,9 @@ from rest_framework import serializers
 class SubmittedUrlsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubmittedUrls
-        fields = '__all__'
+        fields = ['id', 'original_url',
+                  'shorten_url', 'created_on', 'updated_on']
+        # read_only_fields = ['original_url', ]
 
     def create(self, validated_data):
         user = None if self.context.is_anonymous else self.context
